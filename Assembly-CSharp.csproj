@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RssiFingerprint\FingerprintController.cs" />
+    <Compile Include="Assets\Scripts\RssiFingerprint\JsonFileWriter.cs" />
     <Compile Include="Assets\Scripts\Shared\PositionalTracker.cs" />
     <Compile Include="Assets\Scripts\Shared\SceneService.cs" />
     <Compile Include="Assets\Scripts\Shared\WifiSignal.cs" />

@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{873410D0-92AC-4A99-5D70-98C746CF2FA8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shared/WifiSignal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Trilateration/WifiController.cs">
     <Files>
-      <File FileName="Assets/Scripts/RssiFingerprint/FingerprintController.cs" Line="12" Column="20" />
+      <File FileName="Assets/Scripts/RssiFingerprint/FingerprintController.cs" Line="28" Column="31" />
       <File FileName="Assets/Scripts/Shared/PositionalTracker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Shared/WifiSignal.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shared/WifiSignal.cs" Line="17" Column="36" />
+      <File FileName="Assets/Scripts/RssiFingerprint/JsonFileWriter.cs" Line="49" Column="48" />
+      <File FileName="Assets/Scripts/Trilateration/WifiController.cs" Line="89" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

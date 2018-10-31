@@ -1,8 +1,8 @@
 Android
 PlayerPath?
-/Users/matthew/Desktop/wifi.apk
+/Users/matthewhallberg/Desktop/wifiNav.apk
 SceneListBegin?
-Assets/Scenes/wifi.unity
+Assets/Scenes/trilaterate.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -30,7 +30,7 @@ cc4274b586df3c02688bac01b88bd16c UnityEngine.UI.dll:UnityEngine.EventSystems.Eve
 ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycaster
 7ab0e790220bdca831fdd886b339039d UnityEngine.UI.dll:UnityEngine.UI.GridLayoutGroup
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.HorizontalLayoutGroup
-6d07cfcc0fe84148ecc2348c7c2e3e0d UnityEngine.UI.dll:UnityEngine.UI.Image
+686dc5ae0550d5cc850c0d1dcce4c018 UnityEngine.UI.dll:UnityEngine.UI.Image
 720df30c812f6949ccf5cf52c5eca757 UnityEngine.UI.dll:UnityEngine.UI.InputField
 0dbc3be398b4869a5c8d0d8481ee402c UnityEngine.UI.dll:UnityEngine.UI.LayoutElement
 aba7b2852ef61d175dd9602e7723d5e5 UnityEngine.UI.dll:UnityEngine.UI.Mask
@@ -63,7 +63,7 @@ cc4274b586df3c02688bac01b88bd16c UnityEngine.UI.dll:UnityEngine.EventSystems.Eve
 ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycaster
 7ab0e790220bdca831fdd886b339039d UnityEngine.UI.dll:UnityEngine.UI.GridLayoutGroup
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.HorizontalLayoutGroup
-6d07cfcc0fe84148ecc2348c7c2e3e0d UnityEngine.UI.dll:UnityEngine.UI.Image
+686dc5ae0550d5cc850c0d1dcce4c018 UnityEngine.UI.dll:UnityEngine.UI.Image
 720df30c812f6949ccf5cf52c5eca757 UnityEngine.UI.dll:UnityEngine.UI.InputField
 0dbc3be398b4869a5c8d0d8481ee402c UnityEngine.UI.dll:UnityEngine.UI.LayoutElement
 aba7b2852ef61d175dd9602e7723d5e5 UnityEngine.UI.dll:UnityEngine.UI.Mask
@@ -115,6 +115,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 e8733e39efa851172df1c9eaef062265 Unity.XR.ARFoundation.dll:UnityEngine.XR.ARFoundation.ARPlane
+f8d48a155402bba0c7159fa3f51b6ec7 Assembly-CSharp.dll:.FingerprintController
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 65b3a3b9a7779d539ec75a3ceddebdba Assembly-CSharp.dll:.PositionalTracker
@@ -192,6 +193,7 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 50f887466c5b24b4b472a77012bdb2fd Assembly-CSharp.dll:.SphereBehavior
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.XR.ARFoundation.dll:UnityEngine.XR.ARFoundation.ARPointCloud
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SceneService
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -304,3 +306,4 @@ bcd7d1fa51cd779bd19245bdaf8af20b Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.JsonFileWriter

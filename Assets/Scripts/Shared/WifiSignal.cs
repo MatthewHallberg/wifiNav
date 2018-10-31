@@ -14,7 +14,11 @@ public class WifiSignal : MonoBehaviour{
 		pluginClass.CallStatic ("Init");
 	}
 
-	public int GetCurrSignal () {
+    public string GetMacAddress() {
+        return pluginClass.CallStatic<string>("GetMac");
+    }
+
+    public int GetCurrSignal () {
 		return pluginClass.CallStatic<int> ("GetRSSI");
 	}
 
@@ -25,6 +29,4 @@ public class WifiSignal : MonoBehaviour{
 	public int GetLinkSpeed() {
 		return pluginClass.CallStatic<int> ("GetLinkSpeed");
 	}
-
-	//https://stackoverflow.com/questions/11217674/how-to-calculate-distance-from-wifi-router-using-signal-strength
 }
