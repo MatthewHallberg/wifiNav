@@ -6,6 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/home.unity
+    guid: 6f71f36458573455e81e4baa20b3fbc2
+  - enabled: 1
     path: Assets/Scenes/trilaterate.unity
     guid: 28ed3db4d5d9c4bd8913c776a6a6a155
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/fingerprint.unity
+    guid: 8bdc09fffa3db4c8b85b2e5a2a0697df
+  m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: b0d57acd4d62b483d8a1fc58cc2a57a2,
+      type: 2}
