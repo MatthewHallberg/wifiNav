@@ -504,7 +504,6 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Physics2DModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.PhysicsModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ProfilerModule.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Purchasing.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ScreenCaptureModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SharedInternalsModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SpatialTracking.dll
@@ -677,7 +676,6 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.GoogleAudioSpatializer.xml
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SpatialTracking.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SpatialTracking.xml
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Purchasing.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ClusterInputModule.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ClusterInputModule.xml
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ClusterRendererModule.dll.mdb
@@ -721,3 +719,18 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ParticlesLegacyModule.xml
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.HoloLens.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.HoloLens.xml
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.PackageManagerUI.Editor.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.Editor.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.StandardEvents.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.StandardEvents.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.StandardEvents.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.Editor.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.PackageManagerUI.Editor.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Analytics.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.StandardEvents.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.UI.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.UI.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.UI.xml

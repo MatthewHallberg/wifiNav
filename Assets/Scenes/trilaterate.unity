@@ -504,9 +504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9f9ba775d044321873336af2db26e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wifiController: {fileID: 0}
+  wifiController: {fileID: 622644803}
   isColliding: 0
-  targetColliders: []
+  targetColliders:
+  - {fileID: 1688909619}
 --- !u!135 &595760979
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1148,9 +1149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9f9ba775d044321873336af2db26e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wifiController: {fileID: 0}
+  wifiController: {fileID: 622644803}
   isColliding: 0
-  targetColliders: []
+  targetColliders:
+  - {fileID: 1755515475}
 --- !u!135 &1688909622
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1264,9 +1266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9f9ba775d044321873336af2db26e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wifiController: {fileID: 0}
+  wifiController: {fileID: 622644803}
   isColliding: 0
-  targetColliders: []
+  targetColliders:
+  - {fileID: 595760976}
 --- !u!135 &1755515478
 SphereCollider:
   m_ObjectHideFlags: 0

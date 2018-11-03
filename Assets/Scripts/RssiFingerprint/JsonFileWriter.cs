@@ -2,6 +2,7 @@
 using System.IO;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [Serializable]
 public class GridData {
@@ -21,6 +22,8 @@ public class GridDataCollection {
 }
 
 public class JsonFileWriter : MonoBehaviour {
+
+    public Text debugText;
 
     private string path;
     private GridDataCollection gridDataCollection = new GridDataCollection();
@@ -43,10 +46,11 @@ public class JsonFileWriter : MonoBehaviour {
         //load all nodes from file
         DeserializeData();
         foreach(GridData item in gridDataCollection.nodes){
-            Debug.Log("ITEM: "+ gridDataCollection.nodes.IndexOf(item));
-            Debug.Log("mac: "+ item.mac);
-            Debug.Log("rssi: " + item.strength);
-            Debug.Log("position: " + item.pos);
+            debugText.text += "ITEM: " + gridDataCollection.nodes.IndexOf(item) + "\n"
+                + "mac: " + item.mac + "\n"
+                + "rssi: " + item.strength + "\n"
+                + "position: " + item.pos;
+            Debug.Log(debugText.text);
         }
     }
 

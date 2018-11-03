@@ -416,10 +416,6 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/Assembly-CSharp-Editor.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/Assembly-CSharp-Editor.pdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/Boo.Lang.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Google.IOSResolver_v1.2.88.0.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Google.JarResolver_v1.2.88.0.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Google.VersionHandler.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Google.VersionHandlerImpl_v1.2.88.0.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/Microsoft.Win32.Primitives.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/mscorlib.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/netstandard.dll
@@ -586,7 +582,6 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Physics2DModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.PhysicsModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ProfilerModule.dll
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Purchasing.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.ScreenCaptureModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SharedInternalsModule.dll
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.SpatialTracking.dll
@@ -806,7 +801,6 @@
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Graphs.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.iOS.Extensions.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.OSXStandalone.Extensions.dll.mdb
-/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Purchasing.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Purchasing.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll.mdb
 /Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.iOS.Extensions.Common.dll.mdb
@@ -817,3 +811,19 @@
 /Users/matthewhallberg/wifiNav/obj/Debug/Assembly-CSharp-Editor.csproj.CopyComplete
 /Users/matthewhallberg/wifiNav/obj/Debug/Assembly-CSharp-Editor.dll
 /Users/matthewhallberg/wifiNav/obj/Debug/Assembly-CSharp-Editor.pdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.PackageManagerUI.Editor.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.Editor.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Advertisements.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Analytics.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.StandardEvents.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.StandardEvents.dll
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.StandardEvents.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.Editor.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.PackageManagerUI.Editor.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/Unity.TextMeshPro.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Advertisements.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.Analytics.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEditor.Analytics.dll.mdb
+/Users/matthewhallberg/wifiNav/Temp/bin/Debug/UnityEngine.StandardEvents.dll.mdb

@@ -28,6 +28,6 @@ public class WifiBridge {
     }
 
     public static String GetMac(){
-        return wifiManager.getConnectionInfo().getMacAddress();
+        return wifiManager.getConnectionInfo().getBSSID();
     }
 }

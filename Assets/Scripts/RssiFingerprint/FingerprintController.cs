@@ -29,6 +29,7 @@ public class FingerprintController : MonoBehaviour {
     }
 
     public void CreateMap() {
+        CreateNode();
         isMapping = true;
     }
 
