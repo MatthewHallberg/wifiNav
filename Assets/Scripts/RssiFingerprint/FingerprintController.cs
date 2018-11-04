@@ -8,17 +8,22 @@ public class FingerprintController : MonoBehaviour {
     public PositionalTracker positionalTracker;
     public WifiSignal wifiSignal;
 
+    public GameObject nodePrefab;
+
     private bool isMapping = false;
     private Vector3 lastPos = Vector3.zero;
-
+    private int numNodes = 0;
 
     // Update is called once per frame
     void Update() {
         if (isMapping) {
-            if (Vector3.Distance(positionalTracker.GetPosition(), lastPos) > 1) {
-                //record new node
-                CreateNode();
-                lastPos = positionalTracker.GetPosition();
+            if (Vector3.Distance(positionalTracker.GetPosition(), lastPos) > .3f) {
+                Collider[] hitColliders = Physics.OverlapSphere(positionalTracker.GetPosition(), .4f);
+                if (hitColliders.Length == 0){
+                    //record new node
+                    CreateNode();
+                    lastPos = positionalTracker.GetPosition();
+                }
             }
         }
     }
@@ -28,8 +33,17 @@ public class FingerprintController : MonoBehaviour {
         jsonFileWriter.LoadMap();
     }
 
+    public void DisplayMap(List<GridData> nodes) {
+        numNodes = 0;
+        foreach (GridData node in nodes){
+            GameObject mapNode = Instantiate(nodePrefab, node.pos, Quaternion.identity);
+            string nodeText = "Mac: " + node.mac + "\n" + "RSSI: " + node.strength + "dB";
+            numNodes++;
+            mapNode.GetComponent<NodeBehavior>().Init(nodeText, numNodes);
+        }
+    }
+
     public void CreateMap() {
-        CreateNode();
         isMapping = true;
     }
 
@@ -39,7 +53,18 @@ public class FingerprintController : MonoBehaviour {
     }
 
     void CreateNode() {
-        Debug.Log("Recording new Node!");
-        jsonFileWriter.AddNode(wifiSignal.GetMacAddress(), wifiSignal.GetCurrSignal(), positionalTracker.GetPosition());
+        numNodes++;
+        Debug.Log("Node: " + numNodes);
+        //get node info
+        Vector3 pos = positionalTracker.GetPosition();
+        int rssi = wifiSignal.GetCurrSignal();
+        string mac = wifiSignal.GetMacAddress();
+        //add node info to json string
+        jsonFileWriter.AddNode(mac, rssi, pos);
+        //instantiate node
+        GameObject node = Instantiate(nodePrefab, pos, Quaternion.identity);
+        node.transform.position -= new Vector3(0, .1f, 0);
+        string nodeText = "Mac: " + mac + "\n" + "RSSI: " + rssi + "dB";
+        node.GetComponent<NodeBehavior>().Init(nodeText,numNodes);
     }
 }

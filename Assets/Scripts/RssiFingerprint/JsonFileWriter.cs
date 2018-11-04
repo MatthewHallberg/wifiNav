@@ -28,6 +28,8 @@ public class JsonFileWriter : MonoBehaviour {
     const string READ_DATABASE = "http://matthewhallberg.com/ReadMap.php";
     const string MAP_NAME = "mainMap";
 
+    public Text debugText;
+
     private string path;
     private GridDataCollection gridDataCollection = new GridDataCollection();
 
@@ -52,12 +54,14 @@ public class JsonFileWriter : MonoBehaviour {
     }
 
     IEnumerator WriteToDatabase(string json){
+        debugText.text = "";
         WWWForm form = new WWWForm();
         form.AddField("mapInfo", json);
         form.AddField("mapName", MAP_NAME);
         WWW www = new WWW(WRITE_DATABASE, form);
         yield return www;
         Debug.Log(www.text);
+        debugText.text = gridDataCollection.nodes.Count + " nodes uploaded.\nResult: " + www.text;
     }
 
     public void LoadMap(){
@@ -76,17 +80,7 @@ public class JsonFileWriter : MonoBehaviour {
         string loadedJsonDataString = www.text;
         //deserialize json
         gridDataCollection = JsonUtility.FromJson<GridDataCollection>(loadedJsonDataString);
-        LoopThroughAllNodes();
-    }
-
-    void LoopThroughAllNodes(){
-        //loop though all nodes
-        foreach (GridData item in gridDataCollection.nodes) {
-            string debugText = "ITEM: " + gridDataCollection.nodes.IndexOf(item) + "\n"
-                + "mac: " + item.mac + "\n"
-                + "rssi: " + item.strength + "\n"
-                + "position: " + item.pos;
-            Debug.Log(debugText);
-        }
+        //display map
+        GetComponent<FingerprintController>().DisplayMap(gridDataCollection.nodes);
     }
 }
