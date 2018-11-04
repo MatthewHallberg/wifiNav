@@ -3,6 +3,7 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Collections;
 
 [Serializable]
 public class GridData {
@@ -23,13 +24,15 @@ public class GridDataCollection {
 
 public class JsonFileWriter : MonoBehaviour {
 
-    public Text debugText;
+    const string WRITE_DATABASE = "http://matthewhallberg.com/WriteMap.php";
+    const string READ_DATABASE = "http://matthewhallberg.com/ReadMap.php";
+    const string MAP_NAME = "mainMap";
 
     private string path;
     private GridDataCollection gridDataCollection = new GridDataCollection();
 
     public void Start() {
-        //set path
+        //set path for local file
         path = Path.Combine(Application.persistentDataPath, "nodeData.json");
     }
 
@@ -38,29 +41,52 @@ public class JsonFileWriter : MonoBehaviour {
     }
 
     public void SaveMap(){
-        //write all current nodes to JSON file
-        SerializeData();
+        //serialize data
+        string jsonDataString = JsonUtility.ToJson(gridDataCollection, true);
+
+        //write to file locally
+        //File.WriteAllText(path, jsonDataString);
+
+        //write to database
+        StartCoroutine(WriteToDatabase(jsonDataString));
+    }
+
+    IEnumerator WriteToDatabase(string json){
+        WWWForm form = new WWWForm();
+        form.AddField("mapInfo", json);
+        form.AddField("mapName", MAP_NAME);
+        WWW www = new WWW(WRITE_DATABASE, form);
+        yield return www;
+        Debug.Log(www.text);
     }
 
     public void LoadMap(){
-        //load all nodes from file
-        DeserializeData();
-        foreach(GridData item in gridDataCollection.nodes){
-            debugText.text += "ITEM: " + gridDataCollection.nodes.IndexOf(item) + "\n"
+        //load all json from file
+        //string loadedJsonDataString = File.ReadAllText(path);
+
+        //load all json from database
+        StartCoroutine(ReadFromDatabase());
+    }
+
+    IEnumerator ReadFromDatabase() {
+        WWWForm form = new WWWForm();
+        form.AddField("mapName", MAP_NAME);
+        WWW www = new WWW(READ_DATABASE, form);
+        yield return www;
+        string loadedJsonDataString = www.text;
+        //deserialize json
+        gridDataCollection = JsonUtility.FromJson<GridDataCollection>(loadedJsonDataString);
+        LoopThroughAllNodes();
+    }
+
+    void LoopThroughAllNodes(){
+        //loop though all nodes
+        foreach (GridData item in gridDataCollection.nodes) {
+            string debugText = "ITEM: " + gridDataCollection.nodes.IndexOf(item) + "\n"
                 + "mac: " + item.mac + "\n"
                 + "rssi: " + item.strength + "\n"
                 + "position: " + item.pos;
-            Debug.Log(debugText.text);
+            Debug.Log(debugText);
         }
     }
-
-    void SerializeData() {
-        string jsonDataString = JsonUtility.ToJson(gridDataCollection, true);
-        File.WriteAllText(path, jsonDataString);
-    }
-
-    void DeserializeData() {
-        string loadedJsonDataString = File.ReadAllText(path);
-        gridDataCollection = JsonUtility.FromJson<GridDataCollection>(loadedJsonDataString);
-     }
 }
