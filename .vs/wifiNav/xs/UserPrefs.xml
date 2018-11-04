@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{873410D0-92AC-4A99-5D70-98C746CF2FA8}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RssiFingerprint/FingerprintController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RssiFingerprint/ReadMap.cs">
     <Files>
-      <File FileName="Assets/Scripts/Shared/NodeBehavior.cs" Line="11" Column="56" />
-      <File FileName="Assets/Scripts/RssiFingerprint/FingerprintController.cs" Line="11" Column="34" />
-      <File FileName="Assets/Scripts/RssiFingerprint/JsonFileWriter.cs" Line="81" Column="25" />
+      <File FileName="Assets/Scripts/RssiFingerprint/ReadMap.cs" Line="13" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

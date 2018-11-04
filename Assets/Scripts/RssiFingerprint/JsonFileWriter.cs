@@ -50,7 +50,7 @@ public class JsonFileWriter : MonoBehaviour {
         //File.WriteAllText(path, jsonDataString);
 
         //write to database
-        StartCoroutine(WriteToDatabase(jsonDataString));
+       StartCoroutine(WriteToDatabase(jsonDataString));
     }
 
     IEnumerator WriteToDatabase(string json){
@@ -81,6 +81,6 @@ public class JsonFileWriter : MonoBehaviour {
         //deserialize json
         gridDataCollection = JsonUtility.FromJson<GridDataCollection>(loadedJsonDataString);
         //display map
-        GetComponent<FingerprintController>().DisplayMap(gridDataCollection.nodes);
+        GetComponent<ReadMap>().DisplayMap(gridDataCollection.nodes);
     }
 }

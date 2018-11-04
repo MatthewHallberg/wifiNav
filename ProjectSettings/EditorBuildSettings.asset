@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/trilaterate.unity
     guid: 28ed3db4d5d9c4bd8913c776a6a6a155
   - enabled: 1
-    path: Assets/Scenes/fingerprint.unity
+    path: Assets/Scenes/read.unity
     guid: 8bdc09fffa3db4c8b85b2e5a2a0697df
+  - enabled: 1
+    path: Assets/Scenes/create.unity
+    guid: 45a8ab68cd10543fbad21728060ca2ac
   m_configObjects:
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: b0d57acd4d62b483d8a1fc58cc2a57a2,
       type: 2}

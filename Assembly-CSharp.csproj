@@ -198,8 +198,9 @@
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSession.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSessionStatus.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPTrackingState.cs" />
-    <Compile Include="Assets\Scripts\RssiFingerprint\FingerprintController.cs" />
+    <Compile Include="Assets\Scripts\RssiFingerprint\CreateMap.cs" />
     <Compile Include="Assets\Scripts\RssiFingerprint\JsonFileWriter.cs" />
+    <Compile Include="Assets\Scripts\RssiFingerprint\ReadMap.cs" />
     <Compile Include="Assets\Scripts\Shared\NodeBehavior.cs" />
     <Compile Include="Assets\Scripts\Shared\PositionalTracker.cs" />
     <Compile Include="Assets\Scripts\Shared\SceneService.cs" />
