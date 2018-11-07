@@ -9,9 +9,9 @@ using System.Collections;
 public class GridData {
     public string mac;
     public int strength;
-    public Vector3 pos;
+    public Vector2 pos;
 
-    public GridData(string mac, int strength, Vector3 pos) {
+    public GridData(string mac, int strength, Vector2 pos) {
         this.mac = mac;
         this.strength = strength;
         this.pos = pos;
@@ -38,7 +38,7 @@ public class JsonFileWriter : MonoBehaviour {
         path = Path.Combine(Application.persistentDataPath, "nodeData.json");
     }
 
-    public void AddNode(string macAddress,int rssi,Vector3 position){
+    public void AddNode(string macAddress,int rssi,Vector2 position){
         gridDataCollection.nodes.Add(new GridData(macAddress, rssi, position));
     }
 

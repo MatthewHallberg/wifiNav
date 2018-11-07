@@ -7,15 +7,11 @@ public class PositionalTracker : MonoBehaviour {
 
 	public Transform player;
 
-	private Vector3 playerPos = Vector3.zero;
+	private Vector2 playerPos = Vector2.zero;
 
-	void Update () {
-		if (player.position != Vector3.zero) {
-			playerPos = player.position;
-		}
-	}
-
-	public Vector3 GetPosition () {
-		return playerPos;
+	public Vector2 GetPosition () {
+        playerPos.x = player.position.x;
+        playerPos.y = player.position.z;
+        return playerPos;
 	}
 }
