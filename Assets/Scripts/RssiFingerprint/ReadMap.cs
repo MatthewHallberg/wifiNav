@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ReadMap : MonoBehaviour {
 
-    const float MAX_NODE_DISTANCE = 1.1f;
+    const float MAX_NODE_DISTANCE = .7f;
 
     public JsonFileWriter jsonFileWriter;
     public GameObject nodePrefab;
@@ -26,8 +26,15 @@ public class ReadMap : MonoBehaviour {
     public void DisplayMap(List<GridData> nodes) {
 
         allNodes = nodes;
-        allNodes = allNodes.OrderBy(x => Vector2.SqrMagnitude(x.pos)).ToList();
+
+        //order nodes by distance
+        //allNodes = allNodes.OrderBy(x => Vector2.SqrMagnitude(x.pos)).ToList();
+        //stopped here!!! map still not showing entire path!!!!
+        allNodes = allNodes.OrderBy(x => x.pos.magnitude).ToList();
+
+
         List<Vector3> nodePositions = new List<Vector3>();
+        List<LineRenderer> currLines = new List<LineRenderer>();
         Vector3 lastPos = Vector3.zero;
         int currNodeCount = 0;
         currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
@@ -38,6 +45,7 @@ public class ReadMap : MonoBehaviour {
                 //create new line segment
                 currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
                 currNodeCount = 0;
+                currLines.Add(currLineRenderer);
             }
             currLineRenderer.positionCount = currNodeCount + 1;
             Vector3 nodePosition = new Vector3(node.pos.x, .1f, node.pos.y);
@@ -47,11 +55,30 @@ public class ReadMap : MonoBehaviour {
             currNodeCount++;
         }
 
+        //connect closest lines
+        List<Vector3> endPoints = new List<Vector3>();
+        foreach(LineRenderer line in currLines){
+            endPoints.Add(line.GetPosition(0));
+            endPoints.Add(line.GetPosition(line.positionCount - 1));
+        }
+        //this results in some duplicates and overkill but I am pretty much over this project so here we are.
+        foreach(Vector3 point in endPoints){
+            foreach(Vector3 newPoint in endPoints){
+                if (newPoint != point && Vector3.Distance(point,newPoint) < MAX_NODE_DISTANCE){
+                    currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
+                    currLineRenderer.positionCount = 2;
+                    currLineRenderer.SetPosition(0, newPoint);
+                    currLineRenderer.SetPosition(1, point);
+                }
+            }
+        }
+
         //position camera
         StartCoroutine(PositionCamRoutine());
     }
 
     IEnumerator PositionCamRoutine() {
+
         //position camera at center between max and min points
         Vector3 minPoint = allNodes[0].pos;
         Vector3 maxPoint = allNodes[allNodes.Count - 1].pos;
@@ -76,7 +103,6 @@ public class ReadMap : MonoBehaviour {
                 Camera.main.transform.position += new Vector3(0, 1f, 0);
                 yield return null;
             }
-            Camera.main.transform.position += new Vector3(0, 1f, 0);
         }
     }
 }
