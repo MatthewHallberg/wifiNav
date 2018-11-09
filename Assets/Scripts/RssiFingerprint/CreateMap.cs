@@ -11,23 +11,19 @@ public class CreateMap : MonoBehaviour {
     public GameObject nodePrefab;
 
     private bool isMapping = false;
-    private Vector2 lastPos = Vector2.zero;
     private int numNodes = 0;
     private Vector3 tempPos = Vector3.zero;
 
     // Update is called once per frame
     void Update() {
         if (isMapping) {
-            if (Vector2.Distance(positionalTracker.GetPosition(), lastPos) > .3f) {
-                tempPos.x = positionalTracker.GetPosition().x;
-                tempPos.y = Camera.main.transform.position.y;
-                tempPos.z = positionalTracker.GetPosition().y;
-                Collider[] hitColliders = Physics.OverlapSphere(tempPos, .4f);
-                if (hitColliders.Length == 0) {
-                    //record new node
-                    CreateNode();
-                    lastPos = positionalTracker.GetPosition();
-                }
+            tempPos.x = positionalTracker.GetPosition().x;
+            tempPos.y = Camera.main.transform.position.y;
+            tempPos.z = positionalTracker.GetPosition().y;
+            Collider[] hitColliders = Physics.OverlapSphere(tempPos, .4f);
+            if (hitColliders.Length == 0) {
+                //record new node
+                CreateNode();
             }
         }
     }

@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RssiFingerprint/ReadMap.cs">
     <Files>
-      <File FileName="Assets/Scripts/RssiFingerprint/ReadMap.cs" Line="29" Column="80" />
+      <File FileName="Assets/Scripts/RssiFingerprint/ReadMap.cs" Line="8" Column="38" />
+      <File FileName="Assets/Scripts/RssiFingerprint/CreateMap.cs" Line="21" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
