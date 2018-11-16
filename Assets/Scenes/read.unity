@@ -323,8 +323,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204573975}
-  - component: {fileID: 1204573976}
   - component: {fileID: 1204573972}
+  - component: {fileID: 1204573973}
   m_Layer: 0
   m_Name: ReadMap
   m_TagString: Untagged
@@ -343,11 +343,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78605dc9082499dbe9cea675d5c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFileWriter: {fileID: 1204573976}
+  nodeController: {fileID: 1204573973}
   nodePrefab: {fileID: 1889203381406980, guid: cc4f2b2bd87c5424f8778fb313ffe1ec, type: 2}
+  labelPrefab: {fileID: 1564742903174646, guid: 587d8cf3bdceb476aaf4d4e0d393b4f5,
+    type: 2}
   map: {fileID: 516302327}
   lineRendererPrefab: {fileID: 1396278497713298, guid: 14bdb3e47aa374249b0d616fcb94316b,
     type: 2}
+--- !u!114 &1204573973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204573971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0def3e2c5e84e3ea352fa1e78c4ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugText: {fileID: 0}
 --- !u!4 &1204573975
 Transform:
   m_ObjectHideFlags: 0
@@ -361,18 +375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1204573976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1204573971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46cdd4e01836b44cfb32a3f096b8178d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugText: {fileID: 0}
 --- !u!1 &1242369667
 GameObject:
   m_ObjectHideFlags: 0

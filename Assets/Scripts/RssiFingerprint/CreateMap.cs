@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CreateMap : MonoBehaviour {
 
-    public JsonFileWriter jsonFileWriter;
+    public NodeController nodeController;
     public PositionalTracker positionalTracker;
     public WifiSignal wifiSignal;
 
@@ -28,13 +29,24 @@ public class CreateMap : MonoBehaviour {
         }
     }
 
+    public void AddNewLabel(string label){
+        //find closest node
+        Vector3 camVector3 = Camera.main.transform.position;
+        Vector2 camVector2 = new Vector2(camVector3.x, camVector3.z);
+        List<GridData> orderedNodes = nodeController.GetNodes().OrderBy(
+            x => Vector2.Distance(camVector2, x.pos)).ToList();
+        GridData closestNode = orderedNodes[0];
+        //add label to closest node
+        closestNode.label = label;
+    }
+
     public void StartMapping() {
         isMapping = true;
     }
 
     public void SaveMap() {
         isMapping = false;
-        jsonFileWriter.SaveMap();
+        nodeController.SaveMap();
     }
 
     void CreateNode() {
@@ -45,7 +57,7 @@ public class CreateMap : MonoBehaviour {
         int rssi = wifiSignal.GetCurrSignal();
         string mac = wifiSignal.GetMacAddress();
         //add node info to json string
-        jsonFileWriter.AddNode(mac, rssi, pos);
+        nodeController.AddNode(mac, rssi, pos);
         //instantiate node
         Vector3 worldNodePos = new Vector3(pos.x, Camera.main.transform.position.y, pos.y);
         GameObject node = Instantiate(nodePrefab, worldNodePos, Quaternion.identity);

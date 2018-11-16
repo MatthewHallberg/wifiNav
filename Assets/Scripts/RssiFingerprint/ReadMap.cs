@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class ReadMap : MonoBehaviour {
 
     const float MAX_NODE_DISTANCE = 1f;
 
-    public JsonFileWriter jsonFileWriter;
+    public NodeController nodeController;
     public GameObject nodePrefab;
+    public GameObject labelPrefab;
     public Transform map;
     public GameObject lineRendererPrefab;
 
@@ -20,7 +22,7 @@ public class ReadMap : MonoBehaviour {
     }
 
     public void LoadMap() {
-        jsonFileWriter.LoadMap();
+        nodeController.LoadMap();
     }
 
     public void DisplayMap(List<GridData> nodes) {
@@ -41,6 +43,7 @@ public class ReadMap : MonoBehaviour {
 
         //draw map with line renderer
         foreach (GridData node in allNodes) {
+
             if (Vector2.Distance(node.pos,lastPos) > MAX_NODE_DISTANCE) {
                 //create new line segment
                 currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
@@ -112,6 +115,18 @@ public class ReadMap : MonoBehaviour {
                 yield return null;
             }
             Camera.main.transform.position += new Vector3(0, 2f, 0);
+        }
+
+        //add label and position towards camera
+        foreach (GridData node in allNodes) {
+            if (node.label != string.Empty) {
+                GameObject label = Instantiate(labelPrefab, map);
+                float yPos = label.transform.position.y;
+                label.transform.position = new Vector3(node.pos.x, yPos, node.pos.y);
+                Debug.Log("LABEL: " + node.label);
+                label.GetComponent<TextMeshPro>().text = node.label;
+                label.transform.rotation = Camera.main.transform.rotation;
+            }
         }
     }
 }
