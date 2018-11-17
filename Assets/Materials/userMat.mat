@@ -89,8 +89,8 @@ Material:
     - _GlossyReflections: 0
     - _GradientScale: 5
     - _InvFade: 1
-    - _MKGlowPower: 0
-    - _MKGlowTexStrength: 10
+    - _MKGlowPower: 5
+    - _MKGlowTexStrength: 0
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _Metallic: 0

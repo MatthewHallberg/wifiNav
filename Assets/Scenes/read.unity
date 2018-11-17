@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &1157004585
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8915094, b: 0.8915094, a: 1}
+  m_Color: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -368,7 +368,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f66655b38428d40769e9e41ee237cbdc, type: 3}
     m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 1204573975}
   - component: {fileID: 1204573972}
   - component: {fileID: 1204573973}
+  - component: {fileID: 1204573974}
   m_Layer: 0
   m_Name: ReadMap
   m_TagString: Untagged
@@ -416,7 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c78605dc9082499dbe9cea675d5c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 405979105}
+  wifiSignal: {fileID: 1204573974}
+  user: {fileID: 2096522225}
   nodeController: {fileID: 1204573973}
   nodePrefab: {fileID: 1889203381406980, guid: cc4f2b2bd87c5424f8778fb313ffe1ec, type: 2}
   labelPrefab: {fileID: 1564742903174646, guid: 587d8cf3bdceb476aaf4d4e0d393b4f5,
@@ -436,6 +438,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 0}
+--- !u!114 &1204573974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204573971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d02dc4dfa1948fa96ba7e62fbe3616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1204573975
 Transform:
   m_ObjectHideFlags: 0
@@ -633,7 +646,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.43454075, g: 0.8773585, b: 0.47358656, a: 1}
+    m_NormalColor: {r: 0.30980393, g: 1, b: 0.99607843, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

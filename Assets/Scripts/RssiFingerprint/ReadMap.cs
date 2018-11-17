@@ -6,8 +6,9 @@ using TMPro;
 
 public class ReadMap : MonoBehaviour {
 
-    const float MAX_NODE_DISTANCE = 1f;
+    const float MAX_NODE_DISTANCE = 1f; //RSSI in dBm
 
+    public WifiSignal wifiSignal;
     public Transform user;
     public NodeController nodeController;
     public GameObject nodePrefab;
@@ -19,6 +20,9 @@ public class ReadMap : MonoBehaviour {
     private List<GridData> allNodes = new List<GridData>();
 
     private bool initialized = false;
+    private int lastRSSI = -100;
+    private int rssiChangedCount = 0;
+    private Vector3 desiredPosition = new Vector3(0, .2f, 0);
 
     private void Start() {
         LoadMap();
@@ -26,16 +30,30 @@ public class ReadMap : MonoBehaviour {
 
     private void Update() {
         if (initialized){
-
-
-
+            int currSignal = wifiSignal.GetCurrSignal();
+            if (Mathf.Abs(lastRSSI - currSignal) > MAX_NODE_DISTANCE){
+                rssiChangedCount++;
+                if (rssiChangedCount > 2){
+                    lastRSSI = currSignal;
+                    UpdateUserPosition(currSignal);
+                }
+            } else {
+                rssiChangedCount = 0;
+            }
+            user.position = Vector3.Lerp(user.position, desiredPosition, Time.deltaTime * 6f);
         }
     }
 
-    void UpdateUserPosition(){
-
-
-
+    void UpdateUserPosition(int currRSSI){
+        //get mac addres of currently connected access point
+        string currMac = wifiSignal.GetMacAddress();
+        //first get list of nodes with same mac address
+        List<GridData> macNodes = nodeController.GetNodes().Where(x => x.mac == currMac).ToList();
+        //find closest node by RSSI value from previous list
+        GridData closestNode = macNodes.OrderBy(item => Mathf.Abs(currRSSI - item.strength)).First();
+        //set user dot to move to this position
+        desiredPosition = new Vector3(closestNode.pos.x, .2f, closestNode.pos.y);
+        Debug.Log("User Position: " + desiredPosition);
     }
 
     public void LoadMap() {
@@ -145,6 +163,7 @@ public class ReadMap : MonoBehaviour {
                 label.transform.rotation = Camera.main.transform.rotation;
             }
         }
+        user.rotation = Camera.main.transform.rotation;
         initialized = true;
     }
 }
