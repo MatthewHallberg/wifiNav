@@ -8,6 +8,7 @@ public class ReadMap : MonoBehaviour {
 
     const float MAX_NODE_DISTANCE = 1f;
 
+    public Transform user;
     public NodeController nodeController;
     public GameObject nodePrefab;
     public GameObject labelPrefab;
@@ -17,8 +18,24 @@ public class ReadMap : MonoBehaviour {
     private LineRenderer currLineRenderer;
     private List<GridData> allNodes = new List<GridData>();
 
+    private bool initialized = false;
+
     private void Start() {
         LoadMap();
+    }
+
+    private void Update() {
+        if (initialized){
+
+
+
+        }
+    }
+
+    void UpdateUserPosition(){
+
+
+
     }
 
     public void LoadMap() {
@@ -128,5 +145,6 @@ public class ReadMap : MonoBehaviour {
                 label.transform.rotation = Camera.main.transform.rotation;
             }
         }
+        initialized = true;
     }
 }
