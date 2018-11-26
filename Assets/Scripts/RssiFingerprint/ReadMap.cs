@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ReadMap : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class ReadMap : MonoBehaviour {
     public GameObject labelPrefab;
     public Transform map;
     public GameObject lineRendererPrefab;
+    public Text debugText;
 
     private LineRenderer currLineRenderer;
     private List<GridData> allNodes = new List<GridData>();
@@ -33,7 +35,7 @@ public class ReadMap : MonoBehaviour {
             int currSignal = wifiSignal.GetCurrSignal();
             if (Mathf.Abs(lastRSSI - currSignal) > MAX_NODE_DISTANCE){
                 rssiChangedCount++;
-                if (rssiChangedCount > 2){
+                if (rssiChangedCount > 2) {
                     lastRSSI = currSignal;
                     UpdateUserPosition(currSignal);
                 }

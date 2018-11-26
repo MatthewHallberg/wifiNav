@@ -28,17 +28,11 @@ public class NodeController : MonoBehaviour {
 
     const string WRITE_DATABASE = "http://matthewhallberg.com/WriteMap.php";
     const string READ_DATABASE = "http://matthewhallberg.com/ReadMap.php";
-    const string MAP_NAME = "mainMap";
+    const string MAP_NAME = "matt";
 
     public Text debugText;
 
-    private string path;
     private GridDataCollection gridDataCollection = new GridDataCollection();
-
-    public void Start() {
-        //set path for local file
-        path = Path.Combine(Application.persistentDataPath, "nodeData.json");
-    }
 
     public void AddNode(string macAddress,int rssi,Vector2 position){
         gridDataCollection.nodes.Add(new GridData(macAddress, rssi, position));
@@ -78,6 +72,7 @@ public class NodeController : MonoBehaviour {
         WWW www = new WWW(READ_DATABASE, form);
         yield return www;
         string loadedJsonDataString = www.text;
+        print(www.text);
         //deserialize json
         gridDataCollection = JsonUtility.FromJson<GridDataCollection>(loadedJsonDataString);
         //display map
