@@ -28,7 +28,7 @@ public class NodeController : MonoBehaviour {
 
     const string WRITE_DATABASE = "http://matthewhallberg.com/WriteMap.php";
     const string READ_DATABASE = "http://matthewhallberg.com/ReadMap.php";
-    const string MAP_NAME = "matt";
+    const string MAP_NAME = "matt2";
 
     public Text debugText;
 

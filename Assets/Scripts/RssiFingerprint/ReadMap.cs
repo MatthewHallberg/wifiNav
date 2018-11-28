@@ -7,7 +7,11 @@ using UnityEngine.UI;
 
 public class ReadMap : MonoBehaviour {
 
-    const float MAX_NODE_DISTANCE = 1f; //RSSI in dBm
+    const float NEW_LINE_DISTANCE = 1f;
+
+    private float MAX_NODE_DISTANCE = .5f; //RSSI in dBm
+
+    public KalmanFilter kf;
 
     public WifiSignal wifiSignal;
     public Transform user;
@@ -16,46 +20,57 @@ public class ReadMap : MonoBehaviour {
     public GameObject labelPrefab;
     public Transform map;
     public GameObject lineRendererPrefab;
-    public Text debugText;
+    public Text rssiDebugText;
+    public Text distanceDebugText;
 
     private LineRenderer currLineRenderer;
     private List<GridData> allNodes = new List<GridData>();
 
     private bool initialized = false;
-    private int lastRSSI = -100;
-    private int rssiChangedCount = 0;
     private Vector3 desiredPosition = new Vector3(0, .2f, 0);
+    private float filteredRSSI = 0;
 
     private void Start() {
         LoadMap();
     }
 
+    public void OnSliderChanged(float newVal){
+        rssiDebugText.text = newVal.ToString();
+        MAX_NODE_DISTANCE = newVal;
+    }
+
     private void Update() {
-        if (initialized){
-            int currSignal = wifiSignal.GetCurrSignal();
-            if (Mathf.Abs(lastRSSI - currSignal) > MAX_NODE_DISTANCE){
-                rssiChangedCount++;
-                if (rssiChangedCount > 2) {
-                    lastRSSI = currSignal;
-                    UpdateUserPosition(currSignal);
-                }
-            } else {
-                rssiChangedCount = 0;
-            }
-            user.position = Vector3.Lerp(user.position, desiredPosition, Time.deltaTime * 6f);
+        if (initialized) {
+            filteredRSSI = Mathf.Round((float)kf.KalmanUpdate(wifiSignal.GetCurrSignal()));
+            UpdateUserPosition(Mathf.RoundToInt(filteredRSSI));
+            user.position = Vector3.Lerp(user.position, desiredPosition, Time.deltaTime * 4f);
         }
     }
 
     void UpdateUserPosition(int currRSSI){
-        //get mac addres of currently connected access point
-        string currMac = wifiSignal.GetMacAddress();
-        //first get list of nodes with same mac address
-        List<GridData> macNodes = nodeController.GetNodes().Where(x => x.mac == currMac).ToList();
-        //find closest node by RSSI value from previous list
-        GridData closestNode = macNodes.OrderBy(item => Mathf.Abs(currRSSI - item.strength)).First();
-        //set user dot to move to this position
-        desiredPosition = new Vector3(closestNode.pos.x, .2f, closestNode.pos.y);
-        Debug.Log("User Position: " + desiredPosition);
+        if (currRSSI != 0) {
+            //get user position as vector2
+            Vector2 userPos = new Vector2(user.position.x, user.position.z);
+            //get mac addres of currently connected access point
+            string currMac = wifiSignal.GetMacAddress();
+            //first get list of nodes with same mac address
+            List<GridData> macNodes = nodeController.GetNodes().Where(x => x.mac == currMac).ToList();
+            //find closest nodes by RSSI
+            List<GridData> closestNodesByRSSI = macNodes
+            .OrderBy(item => Mathf.Abs(currRSSI - item.strength))
+                .ThenBy(item => Vector2.Distance(userPos, item.pos)).ToList();
+            //DONT KNOW WHAT THE FUCK TO DO HERE ANYMORE,NOTHING WORKS!!!
+
+
+
+            GridData closestNode = closestNodesByRSSI.First();
+
+
+
+            //FUCK.
+            //set user dot to move to this position
+            desiredPosition = new Vector3(closestNode.pos.x, .2f, closestNode.pos.y);
+        }
     }
 
     public void LoadMap() {
@@ -81,7 +96,7 @@ public class ReadMap : MonoBehaviour {
         //draw map with line renderer
         foreach (GridData node in allNodes) {
 
-            if (Vector2.Distance(node.pos,lastPos) > MAX_NODE_DISTANCE) {
+            if (Vector2.Distance(node.pos,lastPos) > NEW_LINE_DISTANCE) {
                 //create new line segment
                 currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
                 currNodeCount = 0;
@@ -104,7 +119,7 @@ public class ReadMap : MonoBehaviour {
         //this results in some duplicates and overkill but I am pretty much over this project so here we are.
         foreach(Vector3 point in endPoints){
             foreach(Vector3 newPoint in endPoints){
-                if (newPoint != point && Vector3.Distance(point,newPoint) < MAX_NODE_DISTANCE){
+                if (newPoint != point && Vector3.Distance(point,newPoint) < NEW_LINE_DISTANCE) {
                     currLineRenderer = Instantiate(lineRendererPrefab, map).GetComponent<LineRenderer>();
                     currLineRenderer.positionCount = 2;
                     currLineRenderer.SetPosition(0, newPoint);
